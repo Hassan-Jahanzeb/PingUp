@@ -15,7 +15,7 @@ const syncUserCreation = inngest.createFunction(
 
         // Check user name availability
 
-        const user = await User.findOne(username)
+        const user = await User.findOne({username})
 
         if (user) {
             username = username + Math.floor(Math.random() * 10000)
@@ -52,7 +52,7 @@ const syncUserUpdation = inngest.createFunction(
 
 const syncUserDeletion = inngest.createFunction(
     { id: 'delete-user-from-clerk' },
-    { event: 'clerk/user.updated' },
+    { event: 'clerk/user.deleted' },
     async (event) => {
         const { id } = event.data
 
