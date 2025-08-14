@@ -14,11 +14,6 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => res.send('Server is running'))
-
-app.get("/api/inngest", (req, res) => {
-    res.status(200).send("OK");
-});
-
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 const PORT = process.env.PORT || 4000
