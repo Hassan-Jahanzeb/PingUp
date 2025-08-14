@@ -3,7 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './configs/db.js'
 import { inngest, functions } from "./inngest/index.js"
-import { serve } from "inngest/express"; // ✅ for Express apps
+// import { serve } from "inngest/express";  
 
 
 const app = express()
@@ -20,4 +20,3 @@ const PORT = process.env.PORT || 4000
 
 app.listen(PORT, () => console.log(`Server is Running on port: ${PORT}`))
 
-module.exports = app
